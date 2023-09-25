@@ -9,7 +9,7 @@ public class Game {
     int optionCut = 0;
     int optionsLeft = 1;
     int optionsCount = 0;
-    System.out.println(optionList);
+    System.out.println("-----------");
     //Reading Loop
     while (optionsLeft > 0) {
       optionPart = optionRemain.substring(0, optionRemain.indexOf(","));
@@ -34,8 +34,9 @@ public class Game {
 
     //first choice
     if (choice == 1) {
-      System.out.println("Then let's begin.\nYou find yourself standing in a clearing. Around you is a forest. Behind you is a cliff. Ahead of you there are two paths.");
-      options("Look around,")
+      System.out.println("Then let us begin.");
+      //begining th game
+      System.out.println
     } else {
       System.out.println("Then what the hell are you doing here " + userName + "?");
       System.exit(0);
