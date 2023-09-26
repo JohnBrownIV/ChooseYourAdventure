@@ -23,6 +23,11 @@ public class Game {
     System.out.println((optionsCount + 1) + " - " + optionRemain);
   }
 
+  static void NotAnOption() {
+    System.out.println("That was not an option. Quitting game.");
+    System.exit(0);
+  }
+
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
     System.out.println("     Welcome to\n THE ADVENTURE ZONE\n--------------------");
@@ -35,8 +40,24 @@ public class Game {
     //first choice
     if (choice == 1) {
       System.out.println("Then let us begin.");
-      //begining th game
-      System.out.println
+      //begining the game
+      System.out.println("You find yourself on a stone platform in the middle of a clearing. Behind you there is a cliff. Ahead of you there are two paths.");
+      options("Go Right,Go Left,Approach Cliff");
+      choice = Integer.parseInt(in.nextLine());
+      switch (choice) {
+        case 1:
+          System.out.println("You chose to go right");
+          System.out.println("After walking down the path for a while, you start to see a stone wall ahead.")
+          break;
+        case 2:
+          System.out.println("You chose to go left");
+          break;
+        case 3:
+          System.out.println("You chose to approach the cliff");
+          break;
+        default:
+          NotAnOption();
+      }
     } else {
       System.out.println("Then what the hell are you doing here " + userName + "?");
       System.exit(0);
