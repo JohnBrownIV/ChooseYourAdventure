@@ -21,11 +21,16 @@ public class Game {
     }
     //Print The Last one
     System.out.println((optionsCount + 1) + " - " + optionRemain);
+    System.out.print("Choice: ");
   }
 
   static void NotAnOption() {
     System.out.println("That was not an option. Quitting game.");
     System.exit(0);
+  }
+
+  static void CharacterSpeak(String speaker, String saying) {
+    System.out.println(speaker + " - " + "\"" + saying + "\"");
   }
 
   public static void main(String[] args) {
@@ -47,7 +52,32 @@ public class Game {
       switch (choice) {
         case 1:
           System.out.println("You chose to go right");
-          System.out.println("After walking down the path for a while, you start to see a stone wall ahead.")
+          System.out.println("After walking down the path for a while, you start to see a stone wall ahead.\nThe wall is too high to see above. On the other side you can see a few pillars of smoke.");
+          options("Scale Wall,Call up to wall,walk around the wall");
+          choice = Integer.parseInt(in.nextLine());
+          switch (choice) {
+            case 1:
+              System.out.println("You attempt to scale the wall.\nAs you begin to climb, You hear a voice shout down at you.");
+              CharacterSpeak("Voice", "OI! What do you think you're doing?");
+              options("Reply: Climbing?,Reply: Slaying Dragons,Introduce Yourself,Stay Silent,Jump Down");
+              choice = Integer.parseInt(in.nextLine());
+              //Unfinished
+              break;
+            case 2:
+              System.out.println("You shout up to the wall. What do you shout?");
+              options("Hello?,Anyone Up There?,Who Dares Build A Wall In My Path?")
+              choice = Integer.parseInt(in.nextLine());
+              switch (choice)
+              //Unfinished
+              break;
+            case 3:
+              System.out.println("Walk left or right?");
+              options("Left,Right");
+              //Unfinished
+              break;
+            default:
+              NotAnOption();
+          }
           break;
         case 2:
           System.out.println("You chose to go left");
