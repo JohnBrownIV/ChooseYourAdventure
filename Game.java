@@ -50,7 +50,7 @@ public class Game {
         LeftPath();
         break;
       case "rightPath":
-        //load method
+        LeftPath();
         break;
       default:
         NotAnOption();
@@ -65,6 +65,9 @@ public class Game {
       case 1:
         CallOption("leftPath");
         break;
+      case 2:
+        CallOption("rightPath");
+        break;
       default:
         NotAnOption();
     }
@@ -73,6 +76,21 @@ public class Game {
 
   static void LeftPath() {
     printTime("You take the path to your left.");
+    printTime("As you continue down the path, you begin to see a fort appear in the distance");
+    printTime("When you approach thhe fort, you hear a man call down from the stone walls");
+    CharacterSpeak("GUARD", "Who goes there?!");
+    Options("Reply \"I am but a weary traveler!\",Reply \"I am death!\",Stay Silent");
+    switch(Response()) {
+      case 1:
+        CharacterSpeak("GUARD", "What does that have to do with anything?");
+        break;
+      default:
+        NotAnOption();
+    }
+  }
+
+  static void RightPath() {
+    printTime("You take the path to your left");
   }
 
 
