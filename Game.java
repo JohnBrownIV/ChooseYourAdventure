@@ -17,12 +17,24 @@ public class Game {
       optionRemain = optionRemain.substring(optionCut, optionRemain.length());
       optionsLeft = optionRemain.indexOf(",");
       optionsCount = optionsCount + 1;
-      System.out.println(optionsCount + " - " + optionPart);
+      printTime(optionsCount + " - " + optionPart);
     }
     //Print The Last one
-    System.out.println((optionsCount + 1) + " - " + optionRemain);
+    printTime((optionsCount + 1) + " - " + optionRemain);
     System.out.print("Choice: ");
   }
+
+  static void printTime(String text) {
+    for ( int nowAt = 0; nowAt < text.length(); nowAt++) {
+      System.out.print(text.charAt(nowAt));
+      try {
+    Thread.sleep(50); // delay for 1 second
+    } catch (InterruptedException e) {
+    e.printStackTrace();
+    }
+    }
+    System.out.println("");
+   }
 
   static int Response() {
     Scanner response = new Scanner(System.in);
@@ -47,11 +59,11 @@ public class Game {
   }
 
   static void StartPlatform() {
-    System.out.println("You find yourself standing on a mysterious platform in a clearing. Behind you is a cliff. Ahead of you there are two paths.");
+    printTime("You find yourself standing on a mysterious platform in a clearing. Behind you is a cliff. Ahead of you there are two paths.");
     Options("Go Left,Go Right,Approach Cliff");
     switch(Response()) {
       case 1:
-        CallOption("leftPath")
+        CallOption("leftPath");
         break;
       default:
         NotAnOption();
@@ -60,36 +72,36 @@ public class Game {
   }
 
   static void LeftPath() {
-    System.out.println("You take the path to your left.");
+    printTime("You take the path to your left.");
   }
 
 
   static void NotAnOption() {
-    System.out.println("That was not an option. Quitting game.");
+    printTime("That was not an option. Quitting game.");
     System.exit(0);
   }
 
   static void CharacterSpeak(String speaker, String saying) {
-    System.out.println(speaker + " - " + "\"" + saying + "\"");
+    printTime(speaker + " - " + "\"" + saying + "\"");
   }
 
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
     System.out.println("     Welcome to\n THE ADVENTURE ZONE\n--------------------");
-    System.out.println("What is your name?");
+    printTime("What is your name?");
     String userName = in.nextLine();
-    System.out.println(userName + ", are you ready to begin?");
+    printTime(userName + ", are you ready to begin?");
     Options("Yes,No");
     int choice = Integer.parseInt(in.nextLine());
 
     //first choice
     if (choice == 1) {
-      System.out.println("Then let us begin.");
+      printTime("Then let us begin.");
       //begining the game
       CallOption("startPlatform");
       }
     else {
-      System.out.println("Then what the hell are you doing here " + userName + "?");
+      printTime("Then what the hell are you doing here " + userName + "?");
       System.exit(0);
     }
 
